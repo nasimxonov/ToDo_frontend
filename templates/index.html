@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">To-Do Ro'yxati</h1>
+        <form action="/add" method="POST">
+            <input type="text" name="task" placeholder="Vazifani kiriting" required>
+            <button type="submit">Qo'shish</button>
+        </form>
+
+        <ul>
+            {% for task in tasks %}
+            <li>
+                {{ task }}
+                <a href="/delete/{{ loop.index0 }}">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
