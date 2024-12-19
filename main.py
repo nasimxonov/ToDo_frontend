@@ -18,6 +18,13 @@ def add_task():
     return redirect(url_for("index"))
 
 
+@app.route("/edit/<int:id>")
+def edit(id):
+    if 0 <= id < len(tasks):
+        task = tasks[id]
+    return render_template("edit.html", id=id, task=task)
+
+
 @app.route("/delete/<int:id>")
 def delete_task(id):
     if 0 <= id < len(tasks):
@@ -25,7 +32,13 @@ def delete_task(id):
     return redirect(url_for("index"))
 
 
+@app.route("/update/<int:id>", methods=["POST"])
+def update(id):
+    if id > -1 and id < len(tasks):
+        tasks[id] = request.form.get("new_tasks")
+
+    return redirect("/")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
-
-

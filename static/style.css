@@ -43,3 +43,34 @@ button {
 button:hover {
     background-color: #045aab;
 }
+
+ul {
+    list-style: none;
+    /* align-items: center; */
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-bottom: 7px;
+    border-radius: 4px;
+}
+
+.common {
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.edit {
+    background-color: green;
+
+}
+
+.delete {
+    background-color: red;
+    margin-left: 5px;
+}

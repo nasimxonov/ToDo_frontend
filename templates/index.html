@@ -12,15 +12,18 @@
     <div class="container">
         <h1 class="title">To-Do Ro'yxati</h1>
         <form action="/add" method="POST">
-            <input type="text" name="task" placeholder="Vazifani kiriting" required>
-            <button type="submit">Qo'shish</button>
+            <input type="text" name="task" value="{{ task }}" placeholder="Vazifani kiriting" required>
+            <button type="submit">ADD</button>
         </form>
 
         <ul>
             {% for task in tasks %}
             <li>
                 {{ task }}
-                <a href="/delete/{{ loop.index0 }}">Delete</a>
+                <div class="action">
+                    <a class="edit common" href="/edit/{{ loop.index0 }}">Edit</a>
+                    <a class="delete common" href="/delete/{{ loop.index0 }}">Delete</a>
+                </div>
             </li>
             {% endfor %}
         </ul>
